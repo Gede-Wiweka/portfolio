@@ -1,0 +1,132 @@
+/* Portfolio content: edit text, skills and projects here */
+const A='assets/';
+const LOGO={XL:'sw-excel.png',GS:'sw-gsheets.png',AS:'sw-appsscript.png',IV:'sw-inventor.png',SW:'sw-solidworks.png',CA:'sw-catia.png',AC:'sw-autocad.png',AN:'sw-ansys.png',AL:'sw-altair.png'};
+const SVG={CM:'<svg viewBox="0 0 24 24" fill="none" stroke="#4A3B33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>',NC:'<svg viewBox="0 0 24 24" fill="none" stroke="#6B4F2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>'};
+const icon=k=>LOGO[k]?`<img src="${A+LOGO[k]}" alt="">`:(SVG[k]||'');
+const prof=[['XL','Excel',90],['GS','Google Sheets',85],['CM','CMMS (eMRO)',85],['SW','SolidWorks',80],['IV','Autodesk Inventor',80],['AC','AutoCAD',75],['CA','CATIA',70],['AL','Altair Inspire Cast',70],['NC','CNC G-code',70],['AN','Ansys',65]];
+const skills=[
+ {t:'Maintenance & Reliability',p:'Backlog campaign, downtime tracking and root-cause work at Batam Aero Technic; RCM workshop with Pertamina Hulu Energi.',c:['Maintenance planning & scheduling','Backlog management','Downtime tracking & escalation','Pareto & root cause analysis','RCM (trained)','FMEA · Weibull (trained)']},
+ {t:'Planning, CMMS & Data',p:'24-hour input rule, 3-way validation and KPI reporting for 64 stations; PPIC and supply-chain casework.',c:['MPS · RCCP','ROP · safety stock','ABC · FSN',['CM','CMMS (eMRO)'],['XL','Excel (advanced)'],['GS','Google Sheets'],['AS','Apps Script'],'Work-order lifecycle','Data validation','KPI dashboards','Board reporting']},
+ {t:'Mechanical Design & Simulation',p:'Coursework, thesis rig, PTDI internship and casting simulation.',c:[['IV','Autodesk Inventor'],['SW','SolidWorks'],['CA','CATIA'],['AC','AutoCAD'],['AN','Ansys'],['AL','Altair Inspire Cast'],'CNC G-code (TU CNC-2A)','CFD (basics)']},
+ {t:'Safety & Laboratory',p:'Ahli K3 Umum (BNSP) scope and the friction-welding thesis.',c:['Ahli K3 Umum (BNSP)','JSA','Permit to Work','Inspection & audit','Micro-Vickers hardness','ASTM E112 grain size','Thermocouple & IR camera','CNC machining','HIRADC · LOTO','Accident investigation']}
+];
+const journey=[
+ {h:'Experience',items:[
+  ['Mar 2026 – Present','Management Trainee – Operations Engineer','PT Batam Aero Technic (Lion Air Group)','Maintenance performance planning for 400+ aircraft, 64 stations, 3 countries.'],
+  ['Dec 2023 – Feb 2024','Mechanical Engineering Intern – Systems Engineering','PT Dirgantara Indonesia (Persero), Bandung','Fuel-system concept evaluation: materials, interfaces, CFD.']]},
+ {h:'Education',items:[
+  ['Aug 2021 – Jan 2026','B.Eng., Mechanical Engineering','Universitas Brawijaya, Malang','Thesis: chamfer angle and hardness in rotary friction-welded Al 6061.']]},
+ {h:'Certifications & Training',items:[
+  ['Feb 2026','Ahli K3 Umum – General OSH Expert','BNSP · valid to Feb 2029',''],
+  ['Jun 2024','Reliability Centered Maintenance Workshop, 30 h','Pertamina Hulu Energi × BKK FT UB',''],
+  ['Apr – Jun 2026','PPIC (7.5 h) · Supply Chain Mgmt (10 h) · Excel Bootcamp','Skill Engineer · Engineering Academy · Karirnex',''],
+  ['Dec 2024','Maintenance Management System, 5 h','Starting Point Training & Consulting','']]},
+ {h:'Organisation & Leadership',items:[
+  ['Jan – Jun 2023','Chairman','UKM Perisai Diri, Universitas Brawijaya','Led a 105-member martial-arts organisation.'],
+  ['Jul – Aug 2023','Village Team Leader','MMD 1000 Desa (KKN), Kab. Malang','Education, environment and tourism programs; bio-pore workshop.'],
+  ['Jun 2024','Organizing Committee','RCM Workshop, Pertamina Hulu Energi × BKK FT UB',''],
+  ['2022 – 2023','Staff & Mentor · Moderator','SRE UB · Kreativitas Mesin Brawijaya 2022–2023','']]}
+];
+const cases=[
+ {tag:'Professional experience · Batam Aero Technic',logo:'logo-bat.png',t:'Backlog elimination & downtime recovery',ins:'Closure above 100% only lasts if the daily review keeps spares and tooling constraints visible.',img:'plane.jpg',pos:'center 60%',cap:'On the apron · Boeing 737-900',
+  k:[['108.0%','Backlog-closure achievement, up from 92.1%'],['78.13%','Critical downtime recovered in-house < 24 h'],['99.79%','Delay-free first departures (4,732)']],
+  p:'Deferred defects were piling up across a multi-country network and critical downtime lacked constraint data.',
+  a:'Co-designed a station-wide closure campaign, Pareto-ranked 495 defects by system and logged 96 critical events with spares, tooling and troubleshooting codes.',
+  i:'More defects closed than opened each period, and 24-hour recovery beat its 75% target.',
+  tools:[['XL','Excel'],['CM','CMMS (eMRO)'],'Pareto','RCA']},
+ {tag:'Professional experience · Batam Aero Technic',logo:'logo-bat.png',t:'Workforce buffer model',ins:'Totals hide risk: network headcount alone missed 17 stations that flip to shortage under an 18% buffer.',img:'dash-exec.jpg',contain:true,cap:'My manpower model · station names blurred',
+  k:[['17','Hidden-shortage stations found by the 18% buffer'],['9 → 26','Shortage stations of 104'],['1,171','Personnel analysed']],
+  p:'Comparing headcount with required manpower, without any buffer, hid stations that would fall short.',
+  a:'Built an 18% workforce buffer model across 104 stations in classes A–E, with an executive summary and a class-composition view.',
+  i:'Showed 17 stations that turn from surplus or balanced to shortage once the buffer applies, giving a redeployment list.',
+  tools:[['XL','Excel'],['GS','Google Sheets'],['AS','Apps Script']]},
+ {tag:'Professional experience · Batam Aero Technic',logo:'logo-bat.png',t:'CMMS governance & 3-way validation',ins:'One source is never enough: operating logs, job reports and work orders disagree, and checking all three exposes the gaps.',img:'apps-script.jpg',contain:true,cap:'Apps Script behind my LM dashboards',
+  k:[['30,456','CMMS records checked (Oct 2026)'],['2.5 h → <30 min','Daily reconciliation'],['100% / 98.83%','Logs / work orders entered within 24 h']],
+  p:'Late or missing records distorted KPIs and broke equipment-history traceability.',
+  a:'Took ownership of a colleague-designed 7-KPI dashboard and added 3-way validation of flight logs, job reports and CMMS work orders.',
+  i:'Flagged 77 missing logs and 591 pending work orders for correction; both input targets met.',
+  tools:[['CM','CMMS (eMRO)'],['XL','Excel'],['GS','Google Sheets'],'Data validation']},
+{tag:'Training casework · PPIC & Supply Chain',logo:'',t:'Planning & inventory control',ins:'Store by movement: 207 fast movers go to rack levels 2–3, slow movers to level 1 and non-moving stock to level 4.',img:'scm-scor.jpg',contain:true,cap:'SCOR diagnosis with data and recommended fixes',
+  k:[['300','Spare parts segmented (ABC/FSN)'],['16 racks','300 bins sized, Rp 36.2 M budget'],['10,800 kg','Reorder point, 12.5 days of cover']],
+  p:'Course cases on stock policy, capacity and storage, with company data provided by the trainers.',
+  a:'Built MPS and RCCP checks, reorder points with safety stock, ABC/FSN segmentation, rack and pallet sizing, and a SCOR diagnosis in Excel.',
+  i:'Showed a 25% demand rise empties 15,000 kg by day 11 and that peak weeks need 160–180 h against 80 h available.',
+  tools:[['XL','Excel'],'MPS · MRP','RCCP','ROP · safety stock','ABC · FSN','SCOR']},
+ {tag:'Safety casework · Ahli K3 Umum assessment',logo:'logo-bnsp.png',t:'Risk control, emergencies & investigation',ins:'Most gaps were systems, not people: untested drills, missing records and unenforced permits recurred across the cases.',img:'k3-hiradc.jpg',contain:true,cap:'HIRADC with LOTO and machine guarding',
+  k:[['4','Workplace cases'],['32','Assessment slides'],['7 steps','Permit-to-work procedure']],
+  p:'Four workplace cases: hazard control, emergency readiness, safety documentation and a serious machine injury.',
+  a:'Built a HIRADC, PPE and inspection plan, emergency procedures and drills, a permit-to-work flow and an accident investigation report.',
+  i:'Traced the rotating-machine injury to work without LOTO on an unguarded machine, and set controls for each gap.',
+  tools:['HIRADC','LOTO','Permit to Work','ERP','SMK3 (PP 50/2012)']},
+ {tag:'Internship · PT Dirgantara Indonesia',logo:'logo-ptdi.png',t:'Fuel-system concept evaluation',ins:'Access is designed in: a screw-jointed end cap and sealed hatch let the welded tank be opened for service.',img:'tank_exploded.jpg',contain:true,cap:'Tank concept: welded Al 6061 shell, screw-jointed cap, service hatches',
+  k:[['7 parts','Tank concept model, all Al 6061'],['600 × Ø296','Length and outer diameter, mm'],['5 criteria','Material scoring']],
+  p:'A concept-phase fuel tank needed material, joining and interface decisions before it could move toward build.',
+  a:'Designed a 7-part Al 6061 tank concept with friction rotary welded shell sections and service hatches; scored materials, documented in CATIA, applied CFD to fuel flow and joined design reviews.',
+  i:'Delivered the official internship report and flagged pre-manufacturing readiness issues. Program details stay at concept level.',
+  tools:[['CA','CATIA'],['IV','Inventor'],'CFD','Material selection']},
+ {tag:'Undergraduate thesis · Universitas Brawijaya',logo:'logo-ub.png',t:'Rotary friction welding of aluminium 6061',ins:'Geometry is a cheap lever: only the chamfer changed, at the same speed and pressures, yet hardness rose 11%.',img:'thesis-temp.jpg',contain:true,cap:'Measured weld temperature by joint geometry',
+  k:[['+11%','Joint hardness, 90.5 vs 81.2 HV'],['~27%','Finer grain, ASTM E112'],['1,600 rpm','50 / 550 bar friction / upset']],
+  p:'Friction-welded aluminium joints lose hardness in the heat-affected zone; the effect of joint geometry was unclear.',
+  a:'Developed the full test procedure and tested 45°, 70° and non-chamfered joints, measuring heat by thermocouple and IR camera and hardness by micro-Vickers.',
+  i:'The chamfered joint ran cooler, with finer grain and 11% higher hardness.',
+  tools:['Micro-Vickers','ASTM E112','Thermocouple','IR camera','CNC machining']},
+ {tag:'Manufacturing · Lab Otomasi Manufaktur',logo:'logo-ub.png',t:'CNC turning: from drawing to G-code',ins:'Separate rough from finish: a finishing offset keeps final dimensions independent of roughing accuracy.',img:'cnc-3.jpg',contain:true,cap:'Every roughing pass laid out before coding',
+  k:[['95','NC blocks'],['6 sheets','Drawing pack'],['G84 · G86','Turning and grooving cycles']],
+  p:'Turn a stepped shaft with radiused shoulders and a groove on a TU CNC-2A lathe from a hand-written program.',
+  a:'Drew the part, planned roughing passes, finishing offset and grooving, then wrote the program with G84 cycles, G02/G03 arcs, G86 grooving and a tool change.',
+  i:'Submitted the program and drawing pack for lab assessment, with a plain-language description beside every block.',
+  tools:[['NC','G-code'],'Turning cycles','Grooving','Technical drawing']},
+ {tag:'Project · Universitas Brawijaya',logo:'logo-ub.png',t:'Universal joint yoke casting simulation',ins:'Simulate before you pour: predicted defects matched the real casting, so mould changes can be tested virtually first.',img:'cast-sim.jpg',contain:true,cap:'Predicted defect location, Altair Inspire Cast',
+  k:[['4','Defect types traced to cause'],['Jul–Nov 2023','Project period']],
+  p:'Sand-cast power-transmission yokes showed internal defects that weaken the part.',
+  a:'Simulated flow, thermal behaviour and solidification, then compared predicted defects with the actual casting.',
+  i:'Identified the cause of microporosity, shrinkage, gas entrainment and sand inclusion, and the parameter changes that reduce them.',
+  tools:[['AL','Altair Inspire Cast'],['SW','SolidWorks'],'Solidification']},
+ {tag:'Project · Universitas Brawijaya',logo:'logo-ub.png',t:'IoT automatic rice grain dryer',ins:'Close the loop: a sensor, controller and heater loop replaces judging dryness by eye.',img:'dryer.jpg',pos:'center 40%',cap:'Team of 4 with the working prototype',
+  k:[['2nd Best Paper','Innovation, IYCEI 2023 (international)'],['Patent','Related IoT agrotech patent approved']],
+  p:'Manual sun-drying gives uneven moisture and lower grain quality.',
+  a:'Designed and tested a closed-loop thermal dryer in a team of four, applying heat-transfer and airflow principles.',
+  i:'Evaluated moisture reduction, heat-flow distribution and efficiency; the paper won an international innovation award.',
+  tools:['IoT control','Heat transfer','Airflow']}
+];
+const cad=[
+ {t:'Portable Saw',tool:'IV',sw:'Autodesk Inventor',meta:'Engineering drawing · May 2022',d:'15-part assembly with exploded view, section A-A and a 5-sheet A3 drawing set.',img:'cad-saw-exploded.jpg',g:[['cad-saw-exploded.jpg','Exploded assembly with balloons and parts list'],['cad-saw-iso.jpg','Isometric views of the 3D model']]},
+ {t:'Refrigerator Valve',tool:'SW',sw:'SolidWorks',meta:'SolidWorks Fundamental training · Nov 2024',d:'5-part brass and stainless valve: body, spindle, seat, gland nut and cap, with section C-C.',img:'cad-valve.jpg',g:[['cad-valve.jpg','Assembled valve, 3D model'],['cad-valve-bom.jpg','Exploded view and bill of materials']]},
+ {t:'Pipe Vice',tool:'SW',sw:'SolidWorks',meta:'SolidWorks Fundamental training · Nov 2024',d:'12-item steel assembly with spindle screw, jaws and pins, plus an assembly animation.',img:'cad-vice.jpg',g:[['cad-vice.mp4','Assembly animation'],['cad-vice.jpg','Assembled pipe vice'],['cad-vice-bom.jpg','Exploded view and bill of materials']]},
+ {t:'Propeller',tool:'IV',sw:'Autodesk Inventor',meta:'Inventor practice · Apr 2023',d:'Propeller part model with a 2D drawing and rendered views.',img:'cad-propeller.jpg',g:[['cad-propeller.jpg','Rendered propeller model']]},
+ {t:'E-bike Triple Clamp',tool:'IV',sw:'Autodesk Inventor 2024',meta:'Nov 2024',d:'Steering triple clamp plate with lightening cut-outs, 200 × 97 × 15 mm, exported as STEP.',img:'cad-clamp.jpg',g:[['cad-clamp.jpg','Triple clamp plate, rendered from the STEP file']]},
+ {t:'Fuel Tank Concept',tool:'IV',sw:'CAD model',meta:'Internship · 2024',d:'7-part Al 6061 tank, 600 mm long, welded shell with screw-jointed cap and service hatches.',img:'tank_assy.jpg',g:[['tank_assy.jpg','Assembly and parts list'],['tank_exploded.jpg','Exploded view with joining methods'],['tank_dims.jpg','Overall dimensions']]},
+ {t:'CNC Turned Shaft',tool:'NC',sw:'TU CNC-2A',meta:'Lab Otomasi Manufaktur',d:'Stepped shaft with radiused shoulders and a groove, drawn at 2:1 and programmed in 95 NC blocks.',img:'cnc-1.jpg',g:[['cnc-1.jpg','3D view of the part'],['cnc-2.jpg','2D view with dimensions'],['cnc-3.jpg','Roughing passes laid out before coding']]},
+ {t:'Yoke Sand Mould',tool:'SW',sw:'SolidWorks',meta:'Casting project · 2023',d:'Sand mould design for the universal joint yoke used in the casting simulation.',img:'cast-mold.jpg',g:[['cast-mold.jpg','Mould design'],['cast-sim.jpg','Simulation prediction'],['cast-defect.jpg','Actual defect matched']]}
+];
+const docs=[
+ ['Certification','cert-bnsp.jpg','Ahli K3 Umum · BNSP · Feb 2026'],
+ ['Certification','cert-exagama.jpg','Basic Safety training · Exagama Merapi Sertifikasi · Jan 2026'],
+ ['Certification','cert-rcm.jpg','RCM Workshop participant · Jun 2024'],
+ ['Certification','cert-rcm-syllabus.jpg','RCM Workshop syllabus · 30 h'],
+ ['Certification','cert-mms.jpg','Maintenance Management System · Dec 2024'],
+ ['Certification','cert-ppic.jpg','PPIC for Manufacturing · May 2026'],
+ ['Certification','cert-scm.jpg','Supply Chain Management · Apr 2026'],
+ ['Certification','cert-excel.jpg','Excel Bootcamp Intermediate · Jun 2026'],
+ ['Certification','k3-investigation.jpg','K3 assessment · accident investigation report'],
+ ['Certification','k3-permit.jpg','K3 assessment · permit-to-work form'],
+ ['Certification','scm-racks.jpg','SCM casework · bins and racks for 300 parts'],
+ ['Certification','ppic-rop.jpg','PPIC casework · days of cover and reorder point'],
+ ['Experience','cockpit.jpg','Batam Aero Technic · on the flight deck'],
+ ['Experience','plane.jpg','Batam Aero Technic · on the apron'],
+ ['Experience','lion.jpg','Lion Group Management Trainee · 2026'],
+ ['Experience','n219.jpg','PT Dirgantara Indonesia · N219 simulator'],
+ ['Experience','ptdi-letter.jpg','PTDI internship completion letter'],
+ ['Education','cnc-1.jpg','CNC turning · 3D view of the part'],
+ ['Education','thesis-team.jpg','Comprehensive exam with research partners'],
+ ['Education','thesis-vickers.jpg','Micro-Vickers hardness tester'],
+ ['Education','thesis-macro.jpg','Macro sections of welded joints'],
+ ['Education','cert-iycei.jpg','IYCEI 2023 · 2nd Best Paper of Innovation'],
+ ['Organisation','cert-rcm-committee.jpg','RCM Workshop organizing committee'],
+ ['Organisation','rcm-2.jpg','RCM Workshop 2024'],
+ ['Organisation','mmd-group.jpg','MMD 1000 Desa 2023 · village team'],
+ ['Organisation','mmd-speak.jpg','MMD 2023 · speaking at a village program session'],
+ ['Organisation','sre.jpg','Society of Renewable Energy UB'],
+ ['Organisation','moderator.jpg','Moderator · Kreativitas Mesin Brawijaya 2022–2023'],
+ ['Organisation','rcm-1.jpg','RCM Workshop venue']
+];

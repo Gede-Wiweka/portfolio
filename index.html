@@ -9,239 +9,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
-<style>
-[hidden]{display:none!important}
-/* Layout: workshop-grey sheets, one charcoal KPI band, case studies as wide "job cards", CAD models as a drawing-sheet grid. Single committed light look, same identity as the slide deck. */
-:root{
-  --paper:#E8E6E3; --paper-2:#DAD7D2; --card:#FFFFFF; --ink:#2A2421; --brown:#4A3B33;
-  --muted:#5F5751; --maroon:#8B2E2E; --amber:#F2A900; --band:#2B2622; --band-ink:#F3EFEA; --line:#C9C4BD;
-  --ok:#2E7D32;
-  --display:"Anton","Oswald","Arial Narrow",Impact,sans-serif;
-  --body:"Montserrat","Segoe UI",Arial,sans-serif;
-  --gut:max(16px,env(safe-area-inset-left,0px));
-  --gutr:max(16px,env(safe-area-inset-right,0px));
-  color-scheme:light;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
-body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.6;margin:0}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--card)}
-img{max-width:100%;display:block}
-a{color:var(--maroon)}
-a:focus-visible,button:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
-.wrap{max-width:1180px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gutr)}
-h1,h2,h3{text-wrap:balance}
-.eyebrow{font-size:13px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--maroon);margin:0}
-.h2{font-family:var(--display);font-weight:400;font-size:clamp(34px,5vw,54px);line-height:1.05;color:var(--brown);margin:6px 0 0;letter-spacing:.01em}
-.lede{color:var(--muted);max-width:62ch;margin:10px 0 0}
-section{padding-block:72px}
-.sec-head{display:flex;flex-direction:column;gap:2px;margin-bottom:32px}
-
-/* nav */
-header.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--card);border-bottom:1px solid var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
-.brand{font-family:var(--display);font-size:22px;letter-spacing:.04em;color:var(--brown);text-decoration:none}
-.brand span{color:var(--amber)}
-.nav ul{display:flex;gap:22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
-.nav ul a{color:var(--ink);text-decoration:none;font-weight:600;font-size:14px}
-.nav ul a:hover{color:var(--maroon)}
-.menu-btn{display:none;background:none;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font:600 14px var(--body);color:var(--ink)}
-@media (max-width:860px){
-  .menu-btn{display:block}
-  .nav ul{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);flex-direction:column;gap:0;border-bottom:1px solid var(--line);padding:6px var(--gutr) 12px var(--gut)}
-  .nav ul.open{display:flex}
-  .nav ul a{display:block;padding:10px 0}
-}
-
-/* hero */
-.hero{padding-block:56px 0;overflow:hidden}
-.hero .wrap{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,.8fr);gap:24px;align-items:end}
-.hero-copy{padding-bottom:64px;display:flex;flex-direction:column;gap:18px;min-width:0}
-.hi{font-size:20px;font-weight:600;color:var(--maroon);margin:0}
-.name{font-family:var(--display);font-weight:400;font-size:clamp(46px,7vw,96px);line-height:.98;color:var(--brown);margin:0;letter-spacing:.01em;text-transform:uppercase}
-.role{display:flex;flex-direction:column;gap:2px}
-.role b{font-size:15px;letter-spacing:.3em;text-transform:uppercase}
-.role span{color:var(--muted);font-size:18px}
-.motto{display:flex;gap:16px;align-items:stretch}
-.motto::before{content:"";width:5px;border-radius:3px;background:var(--amber);flex-shrink:0}
-.motto p{margin:0;font-size:clamp(20px,2.4vw,27px);font-style:italic;font-weight:600;color:var(--maroon);line-height:1.3}
-.cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;border:2px solid var(--brown)}
-.btn.solid{background:var(--brown);color:var(--card)}
-.btn.solid:hover{background:var(--maroon);border-color:var(--maroon)}
-.btn.ghost{color:var(--brown)}
-.btn.ghost:hover{background:var(--card)}
-.portrait{position:relative;align-self:end;justify-self:center;width:min(440px,100%);aspect-ratio:440/560}
-.portrait .disc{position:absolute;left:50%;top:6%;width:96%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle at 35% 30%,#FFFFFF 0%,#EDE7DF 70%)}
-.portrait .ring{position:absolute;left:50%;top:1%;width:106%;aspect-ratio:1;transform:translateX(-50%);border-radius:50%;border:3px solid var(--amber)}
-.portrait img{position:absolute;left:50%;bottom:0;height:100%;width:auto;max-width:none;transform:translateX(-50%);filter:drop-shadow(0 16px 24px rgba(0,0,0,.25))}
-@media (max-width:860px){
-  .hero .wrap{grid-template-columns:1fr}
-  .hero-copy{padding-bottom:8px}
-  .portrait{width:min(320px,86%)}
-}
-
-/* KPI band */
-.band{background:var(--band);color:var(--band-ink);padding-block:34px}
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
-.kpi{display:flex;flex-direction:column;gap:4px;border-left:3px solid var(--amber);padding-left:16px}
-.kpi strong{font-family:var(--display);font-weight:400;font-size:clamp(30px,3.6vw,44px);line-height:1;color:#FFFFFF;font-variant-numeric:tabular-nums}
-.kpi span{font-size:14px;color:#D8D1C9}
-.band small{display:block;margin-top:18px;font-size:12px;color:#B9B0A6}
-@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-/* about */
-.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:44px;align-items:center}
-.about-photo{position:relative;margin-right:18px}
-.about-photo img{border-radius:20px;aspect-ratio:4/5;object-fit:cover;width:100%;object-position:center 40%}
-.about-photo::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:3px solid var(--amber);border-radius:20px;z-index:-1}
-.about-text{display:flex;flex-direction:column;gap:16px;min-width:0}
-.about-text p{margin:0;max-width:62ch}
-.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 24px;margin:6px 0 0;padding:0;list-style:none}
-.facts li{display:flex;flex-direction:column;border-top:1px solid var(--line);padding-top:8px}
-.facts b{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.logos{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
-.logos div{background:var(--card);border-radius:12px;height:64px;padding:8px 14px;display:flex;align-items:center}
-.logos img{max-height:46px;width:auto}
-@media (max-width:860px){.about{grid-template-columns:1fr}.about-photo{max-width:420px}}
-
-/* skills */
-.skills{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
-.skill{background:var(--card);border-radius:18px;padding:22px 24px;display:flex;flex-direction:column;gap:14px;min-width:0}
-.skill h3{margin:0;font-size:18px;color:var(--brown)}
-.skill p{margin:0;font-size:14px;color:var(--muted)}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{display:inline-flex;align-items:center;gap:8px;background:var(--paper);border-radius:999px;padding:6px 14px;font-size:14px;font-weight:600}
-.chip i{font-style:normal;width:26px;height:26px;border-radius:7px;display:grid;place-items:center;background:#FFFFFF;margin-left:-8px;overflow:hidden;flex-shrink:0;box-shadow:0 1px 2px rgba(0,0,0,.12)}
-.chip i img,.chip i svg{width:84%;height:84%;object-fit:contain}
-/* proficiency */
-.prof{background:var(--card);border-radius:18px;padding:22px 24px;margin-bottom:18px;display:grid;grid-template-columns:1fr;gap:22px}
-.prof-head{grid-column:1/-1;display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
-.prof-head h3{margin:0;font-size:18px;color:var(--brown)}
-.prof-head span{font-size:13px;color:var(--muted)}
-.bars{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px 24px}
-.bar{display:flex;align-items:center;gap:12px;min-width:0}
-.bar .ic{width:40px;height:40px;border-radius:10px;background:#FFFFFF;display:grid;place-items:center;flex-shrink:0;box-shadow:0 1px 3px rgba(0,0,0,.12)}
-.bar .ic img,.bar .ic svg{width:84%;height:84%;object-fit:contain}
-.bar .bd{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
-.bar .nm{font-size:14px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bar .row{display:flex;align-items:center;gap:8px}
-.bar .row .track{flex:1}
-.bar .row b{font-size:13px;color:#8B2E2E;min-width:34px;text-align:right}
-.bar .track{height:8px;border-radius:4px;background:var(--paper-2)}
-.bar .fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#A8483F,#8B2E2E)}
-.langs{border-top:2px solid rgba(74,59,51,.12);padding-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;font-size:15px}
-.langs .eyebrow{margin:0}
-@media (max-width:1100px){.bars{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:620px){.bars{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:420px){.bars{grid-template-columns:1fr}}
-@media (max-width:760px){.skills{grid-template-columns:1fr}}
-
-
-/* habits */
-.habits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
-.habit{background:var(--card);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:8px;min-width:0;border-top:4px solid var(--amber)}
-.habit .hn{font-family:var(--display);font-size:28px;color:var(--maroon);line-height:1}
-.habit h3{margin:0;font-size:18px;color:var(--brown)}
-.habit p{margin:0;color:var(--muted);font-size:14px}
-.habit ul{margin:4px 0 0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:4px}
-@media (max-width:980px){.habits{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.habits{grid-template-columns:1fr}}
-.insight{background:var(--paper);border-left:4px solid var(--amber);border-radius:8px;padding:10px 14px;font-size:14.5px}
-.insight b{color:var(--brown)}
-/* journey */
-.journey{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 44px}
-.track h3{display:flex;align-items:center;gap:10px;margin:0 0 14px;font-size:20px;color:var(--brown)}
-.track h3::before{content:"";width:12px;height:12px;border-radius:50%;background:var(--amber)}
-.track ol{list-style:none;margin:0;padding:0 0 0 18px;border-left:2px solid var(--line);display:flex;flex-direction:column;gap:18px}
-.track li{position:relative;padding-left:18px}
-.track li::before{content:"";position:absolute;left:-26px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--maroon)}
-.track .when{font-size:13px;font-weight:700;color:var(--maroon);letter-spacing:.04em}
-.track .what{font-weight:700;display:block;line-height:1.35}
-.track .where{color:var(--muted);font-size:14px;display:block}
-.track .note{font-size:14px;display:block;margin-top:2px}
-@media (max-width:760px){.journey{grid-template-columns:1fr}}
-
-/* case studies */
-.cases{display:flex;flex-direction:column;gap:22px}
-.case{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);background:var(--card);border-radius:22px;overflow:hidden}
-.case:nth-child(even) .case-media{order:2}
-.case-media{position:relative;background:var(--paper-2);min-height:280px}
-.case-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.case-media img.contain{object-fit:contain;padding:14px;background:var(--card)}
-.case-media figcaption{position:absolute;left:0;right:0;bottom:0;background:rgba(43,38,34,.82);color:#FFFFFF;font-size:13px;font-weight:600;padding:8px 14px}
-.case-body{padding:26px 28px;display:flex;flex-direction:column;gap:12px;min-width:0}
-.case-tag{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.case-tag img{height:38px;width:auto}
-.case h3{margin:0;font-family:var(--display);font-weight:400;font-size:clamp(26px,3vw,34px);line-height:1.08;color:var(--brown);letter-spacing:.01em}
-.case-kpis{display:flex;flex-wrap:wrap;gap:10px 22px}
-.case-kpis div{display:flex;flex-direction:column}
-.case-kpis strong{font-family:var(--display);font-weight:400;font-size:28px;line-height:1;color:var(--maroon);font-variant-numeric:tabular-nums}
-.case-kpis span{font-size:12.5px;color:var(--muted);max-width:22ch;line-height:1.35}
-.pai{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:15px}
-.pai b{color:var(--maroon);font-size:12px;letter-spacing:.14em;margin-right:6px}
-.case .chips .chip{font-size:13px;padding:5px 12px}
-@media (max-width:860px){.case{grid-template-columns:1fr}.case:nth-child(even) .case-media{order:0}.case-media{min-height:220px;aspect-ratio:16/10}}
-
-/* CAD grid */
-.cad-head{margin-top:56px}
-.cad{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-@media (max-width:1120px){.cad{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.model{background:var(--card);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;border:0;padding:0;text-align:left;font:inherit;color:inherit;cursor:pointer}
-.model:hover .thumb img,.model:hover .thumb video{transform:scale(1.04)}
-.thumb{aspect-ratio:4/3;background:#F4F5F7;overflow:hidden;position:relative}
-.thumb img,.thumb video{width:100%;height:100%;object-fit:contain;transition:transform .3s ease}
-.thumb .sw{position:absolute;top:10px;left:10px;font-size:11px;font-weight:700;letter-spacing:.08em;background:var(--band);color:#FFFFFF;border-radius:6px;padding:3px 8px;display:inline-flex;align-items:center;gap:6px}
-.thumb .sw i{width:18px;height:18px;border-radius:4px;background:#FFFFFF;display:grid;place-items:center;overflow:hidden}
-.thumb .sw i img,.thumb .sw i svg{width:86%;height:86%;object-fit:contain}
-.model-body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px}
-.model h4{margin:0;font-size:17px;color:var(--brown)}
-.model p{margin:0;font-size:14px;color:var(--muted)}
-.model .meta{font-size:12.5px;font-weight:700;color:var(--maroon);letter-spacing:.03em}
-@media (max-width:900px){.cad{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:560px){.cad{grid-template-columns:1fr}}
-
-/* documentation */
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.tab{border:2px solid var(--brown);background:transparent;color:var(--brown);border-radius:999px;padding:7px 16px;font:700 14px var(--body);cursor:pointer}
-.tab[aria-pressed="true"]{background:var(--brown);color:#FFFFFF}
-.docs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
-.doc{border:0;padding:0;background:var(--card);border-radius:14px;overflow:hidden;cursor:pointer;text-align:left;font:inherit;color:inherit;display:flex;flex-direction:column}
-.doc img{aspect-ratio:4/3;width:100%;object-fit:cover;object-position:top}
-.doc span{font-size:13px;font-weight:600;padding:9px 12px;line-height:1.35}
-@media (max-width:900px){.docs{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:620px){.docs{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-/* contact */
-.contact{background:var(--band);color:var(--band-ink)}
-.contact .h2{color:#FFFFFF}
-.contact .lede{color:#D8D1C9}
-.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:28px}
-.way{background:#38312C;border-radius:16px;padding:20px 22px;display:flex;flex-direction:column;gap:8px;min-width:0}
-.way b{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
-.way .val{font-size:17px;font-weight:600;color:#FFFFFF;overflow-wrap:anywhere;user-select:all}
-.way button,.way a.go{align-self:flex-start;background:transparent;border:2px solid #7A6F66;color:#FFFFFF;border-radius:999px;padding:6px 14px;font:600 13px var(--body);cursor:pointer;text-decoration:none}
-.way button:hover,.way a.go:hover{border-color:var(--amber)}
-@media (max-width:760px){.ways{grid-template-columns:1fr}}
-footer{background:var(--band);color:#A99F95;font-size:13px;padding-block:22px;border-top:1px solid #3E3631}
-
-/* lightbox */
-.lb{position:fixed;inset:0;z-index:100;background:rgba(20,17,15,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:calc(16px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(16px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px))}
-.lb[hidden]{display:none}
-.lb img,.lb video{max-height:78vh;max-width:min(1100px,100%);border-radius:10px;background:#FFFFFF}
-.lb p{color:#FFFFFF;margin:0;font-weight:600;text-align:center;max-width:70ch}
-.lb .ctl{display:flex;gap:10px}
-.lb button{background:#FFFFFF;border:0;border-radius:999px;padding:8px 18px;font:700 14px var(--body);cursor:pointer;color:var(--ink)}
-.note-sm{font-size:13px;color:var(--muted);margin-top:14px}
-</style>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/data.js" defer></script>
+<script src="js/main.js" defer></script>
 </head>
 <body>
 
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#home">GEDE WIWEKA<span>.</span></a>
-    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button>
+    <div class="nav-right"><a class="nav-cv" href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg><span>CV</span></a><button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button></div>
     <ul id="navList">
       <li><a href="#about">About</a></li>
       <li><a href="#approach">Approach</a></li>
@@ -262,7 +39,7 @@ footer{background:var(--band);color:#A99F95;font-size:13px;padding-block:22px;bo
         <h1 class="name">I Gede Putu<br>Wiweka Legawa</h1>
         <div class="role"><b>Mechanical Engineer</b><span>Maintenance Planning · Reliability · CMMS Data Governance</span></div>
         <div class="motto"><p>“Keep it safe. Keep it running. Keep improving.”</p></div>
-        <div class="cta"><a class="btn solid" href="#work">See my work</a><a class="btn ghost" href="#contact">Contact me</a></div>
+        <div class="cta"><a class="btn solid" href="#work">See my work</a><a class="btn ghost" href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download CV</a><a class="btn link" href="#contact">Contact me</a></div>
       </div>
       <div class="portrait" aria-hidden="false">
         <div class="disc"></div><div class="ring"></div>
@@ -360,11 +137,13 @@ footer{background:var(--band);color:#A99F95;font-size:13px;padding-block:22px;bo
         <div class="way"><b>Phone / WhatsApp</b><span class="val" id="vPhone">+62 812-3867-6427</span><button type="button" data-copy="vPhone">Copy number</button></div>
         <div class="way"><b>Email</b><span class="val" id="vMail">gedeputu242003@gmail.com</span><button type="button" data-copy="vMail">Copy email</button></div>
         <div class="way"><b>LinkedIn</b><span class="val">linkedin.com/in/gedewiweka</span><a class="go" href="https://www.linkedin.com/in/gedewiweka" target="_blank" rel="noopener">Open profile</a></div>
+        <div class="way way-cv"><b>Curriculum vitae</b><span class="val">Full CV with experience, projects and certifications · PDF, 4 pages</span><a class="go solid" href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download CV</a></div>
       </div>
     </div>
   </section>
 </main>
-<footer><div class="wrap">© 2026 I Gede Putu Wiweka Legawa · Mechanical Engineer</div></footer>
+<footer><div class="wrap"><span>© 2026 I Gede Putu Wiweka Legawa · Mechanical Engineer</span><a href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv>Download CV (PDF)</a></div></footer>
+<button type="button" class="to-top" id="toTop" aria-label="Back to top" hidden><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
 
 <div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
   <div id="lbMedia"></div>
@@ -372,180 +151,5 @@ footer{background:var(--band);color:#A99F95;font-size:13px;padding-block:22px;bo
   <div class="ctl"><button type="button" id="lbPrev">Previous</button><button type="button" id="lbClose">Close</button><button type="button" id="lbNext">Next</button></div>
 </div>
 
-<script>
-const A='assets/';
-const LOGO={XL:'sw-excel.png',GS:'sw-gsheets.png',AS:'sw-appsscript.png',IV:'sw-inventor.png',SW:'sw-solidworks.png',CA:'sw-catia.png',AC:'sw-autocad.png',AN:'sw-ansys.png',AL:'sw-altair.png'};
-const SVG={CM:'<svg viewBox="0 0 24 24" fill="none" stroke="#4A3B33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>',NC:'<svg viewBox="0 0 24 24" fill="none" stroke="#6B4F2A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>'};
-const icon=k=>LOGO[k]?`<img src="${A+LOGO[k]}" alt="">`:(SVG[k]||'');
-const prof=[['XL','Excel',90],['GS','Google Sheets',85],['CM','CMMS (eMRO)',85],['SW','SolidWorks',80],['IV','Autodesk Inventor',80],['AC','AutoCAD',75],['CA','CATIA',70],['AL','Altair Inspire Cast',70],['NC','CNC G-code',70],['AN','Ansys',65]];
-const skills=[
- {t:'Maintenance & Reliability',p:'Backlog campaign, downtime tracking and root-cause work at Batam Aero Technic; RCM workshop with Pertamina Hulu Energi.',c:['Maintenance planning & scheduling','Backlog management','Downtime tracking & escalation','Pareto & root cause analysis','RCM (trained)','FMEA · Weibull (trained)']},
- {t:'Planning, CMMS & Data',p:'24-hour input rule, 3-way validation and KPI reporting for 64 stations; PPIC and supply-chain casework.',c:['MPS · RCCP','ROP · safety stock','ABC · FSN',['CM','CMMS (eMRO)'],['XL','Excel (advanced)'],['GS','Google Sheets'],['AS','Apps Script'],'Work-order lifecycle','Data validation','KPI dashboards','Board reporting']},
- {t:'Mechanical Design & Simulation',p:'Coursework, thesis rig, PTDI internship and casting simulation.',c:[['IV','Autodesk Inventor'],['SW','SolidWorks'],['CA','CATIA'],['AC','AutoCAD'],['AN','Ansys'],['AL','Altair Inspire Cast'],'CNC G-code (TU CNC-2A)','CFD (basics)']},
- {t:'Safety & Laboratory',p:'Ahli K3 Umum (BNSP) scope and the friction-welding thesis.',c:['Ahli K3 Umum (BNSP)','JSA','Permit to Work','Inspection & audit','Micro-Vickers hardness','ASTM E112 grain size','Thermocouple & IR camera','CNC machining','HIRADC · LOTO','Accident investigation']}
-];
-const journey=[
- {h:'Experience',items:[
-  ['Mar 2026 – Present','Management Trainee – Operations Engineer','PT Batam Aero Technic (Lion Air Group)','Maintenance performance planning for 400+ aircraft, 64 stations, 3 countries.'],
-  ['Dec 2023 – Feb 2024','Mechanical Engineering Intern – Systems Engineering','PT Dirgantara Indonesia (Persero), Bandung','Fuel-system concept evaluation: materials, interfaces, CFD.']]},
- {h:'Education',items:[
-  ['Aug 2021 – Jan 2026','B.Eng., Mechanical Engineering','Universitas Brawijaya, Malang','Thesis: chamfer angle and hardness in rotary friction-welded Al 6061.']]},
- {h:'Certifications & Training',items:[
-  ['Feb 2026','Ahli K3 Umum – General OSH Expert','BNSP · valid to Feb 2029',''],
-  ['Jun 2024','Reliability Centered Maintenance Workshop, 30 h','Pertamina Hulu Energi × BKK FT UB',''],
-  ['Apr – Jun 2026','PPIC (7.5 h) · Supply Chain Mgmt (10 h) · Excel Bootcamp','Skill Engineer · Engineering Academy · Karirnex',''],
-  ['Dec 2024','Maintenance Management System, 5 h','Starting Point Training & Consulting','']]},
- {h:'Organisation & Leadership',items:[
-  ['Jan – Jun 2023','Chairman','UKM Perisai Diri, Universitas Brawijaya','Led a 105-member martial-arts organisation.'],
-  ['Jul – Aug 2023','Village Team Leader','MMD 1000 Desa (KKN), Kab. Malang','Education, environment and tourism programs; bio-pore workshop.'],
-  ['Jun 2024','Organizing Committee','RCM Workshop, Pertamina Hulu Energi × BKK FT UB',''],
-  ['2022 – 2023','Staff & Mentor · Moderator','SRE UB · Kreativitas Mesin Brawijaya 2022–2023','']]}
-];
-const cases=[
- {tag:'Professional experience · Batam Aero Technic',logo:'logo-bat.png',t:'Backlog elimination & downtime recovery',ins:'Closure above 100% only lasts if the daily review keeps spares and tooling constraints visible.',img:'plane.jpg',pos:'center 60%',cap:'On the apron · Boeing 737-900',
-  k:[['108.0%','Backlog-closure achievement, up from 92.1%'],['78.13%','Critical downtime recovered in-house < 24 h'],['99.79%','Delay-free first departures (4,732)']],
-  p:'Deferred defects were piling up across a multi-country network and critical downtime lacked constraint data.',
-  a:'Co-designed a station-wide closure campaign, Pareto-ranked 495 defects by system and logged 96 critical events with spares, tooling and troubleshooting codes.',
-  i:'More defects closed than opened each period, and 24-hour recovery beat its 75% target.',
-  tools:[['XL','Excel'],['CM','CMMS (eMRO)'],'Pareto','RCA']},
- {tag:'Professional experience · Batam Aero Technic',logo:'logo-bat.png',t:'Workforce buffer model',ins:'Totals hide risk: network headcount alone missed 17 stations that flip to shortage under an 18% buffer.',img:'dash-exec.jpg',contain:true,cap:'My manpower model · station names blurred',
-  k:[['17','Hidden-shortage stations found by the 18% buffer'],['9 → 26','Shortage stations of 104'],['1,171','Personnel analysed']],
-  p:'Comparing headcount with required manpower, without any buffer, hid stations that would fall short.',
-  a:'Built an 18% workforce buffer model across 104 stations in classes A–E, with an executive summary and a class-composition view.',
-  i:'Showed 17 stations that turn from surplus or balanced to shortage once the buffer applies, giving a redeployment list.',
-  tools:[['XL','Excel'],['GS','Google Sheets'],['AS','Apps Script']]},
- {tag:'Professional experience · Batam Aero Technic',logo:'logo-bat.png',t:'CMMS governance & 3-way validation',ins:'One source is never enough: operating logs, job reports and work orders disagree, and checking all three exposes the gaps.',img:'apps-script.jpg',contain:true,cap:'Apps Script behind my LM dashboards',
-  k:[['30,456','CMMS records checked (Oct 2026)'],['2.5 h → <30 min','Daily reconciliation'],['100% / 98.83%','Logs / work orders entered within 24 h']],
-  p:'Late or missing records distorted KPIs and broke equipment-history traceability.',
-  a:'Took ownership of a colleague-designed 7-KPI dashboard and added 3-way validation of flight logs, job reports and CMMS work orders.',
-  i:'Flagged 77 missing logs and 591 pending work orders for correction; both input targets met.',
-  tools:[['CM','CMMS (eMRO)'],['XL','Excel'],['GS','Google Sheets'],'Data validation']},
-{tag:'Training casework · PPIC & Supply Chain',logo:'',t:'Planning & inventory control',ins:'Store by movement: 207 fast movers go to rack levels 2–3, slow movers to level 1 and non-moving stock to level 4.',img:'scm-scor.jpg',contain:true,cap:'SCOR diagnosis with data and recommended fixes',
-  k:[['300','Spare parts segmented (ABC/FSN)'],['16 racks','300 bins sized, Rp 36.2 M budget'],['10,800 kg','Reorder point, 12.5 days of cover']],
-  p:'Course cases on stock policy, capacity and storage, with company data provided by the trainers.',
-  a:'Built MPS and RCCP checks, reorder points with safety stock, ABC/FSN segmentation, rack and pallet sizing, and a SCOR diagnosis in Excel.',
-  i:'Showed a 25% demand rise empties 15,000 kg by day 11 and that peak weeks need 160–180 h against 80 h available.',
-  tools:[['XL','Excel'],'MPS · MRP','RCCP','ROP · safety stock','ABC · FSN','SCOR']},
- {tag:'Safety casework · Ahli K3 Umum assessment',logo:'logo-bnsp.png',t:'Risk control, emergencies & investigation',ins:'Most gaps were systems, not people: untested drills, missing records and unenforced permits recurred across the cases.',img:'k3-hiradc.jpg',contain:true,cap:'HIRADC with LOTO and machine guarding',
-  k:[['4','Workplace cases'],['32','Assessment slides'],['7 steps','Permit-to-work procedure']],
-  p:'Four workplace cases: hazard control, emergency readiness, safety documentation and a serious machine injury.',
-  a:'Built a HIRADC, PPE and inspection plan, emergency procedures and drills, a permit-to-work flow and an accident investigation report.',
-  i:'Traced the rotating-machine injury to work without LOTO on an unguarded machine, and set controls for each gap.',
-  tools:['HIRADC','LOTO','Permit to Work','ERP','SMK3 (PP 50/2012)']},
- {tag:'Internship · PT Dirgantara Indonesia',logo:'logo-ptdi.png',t:'Fuel-system concept evaluation',ins:'Access is designed in: a screw-jointed end cap and sealed hatch let the welded tank be opened for service.',img:'tank_exploded.jpg',contain:true,cap:'Tank concept: welded Al 6061 shell, screw-jointed cap, service hatches',
-  k:[['7 parts','Tank concept model, all Al 6061'],['600 × Ø296','Length and outer diameter, mm'],['5 criteria','Material scoring']],
-  p:'A concept-phase fuel tank needed material, joining and interface decisions before it could move toward build.',
-  a:'Designed a 7-part Al 6061 tank concept with friction rotary welded shell sections and service hatches; scored materials, documented in CATIA, applied CFD to fuel flow and joined design reviews.',
-  i:'Delivered the official internship report and flagged pre-manufacturing readiness issues. Program details stay at concept level.',
-  tools:[['CA','CATIA'],['IV','Inventor'],'CFD','Material selection']},
- {tag:'Undergraduate thesis · Universitas Brawijaya',logo:'logo-ub.png',t:'Rotary friction welding of aluminium 6061',ins:'Geometry is a cheap lever: only the chamfer changed, at the same speed and pressures, yet hardness rose 11%.',img:'thesis-temp.jpg',contain:true,cap:'Measured weld temperature by joint geometry',
-  k:[['+11%','Joint hardness, 90.5 vs 81.2 HV'],['~27%','Finer grain, ASTM E112'],['1,600 rpm','50 / 550 bar friction / upset']],
-  p:'Friction-welded aluminium joints lose hardness in the heat-affected zone; the effect of joint geometry was unclear.',
-  a:'Developed the full test procedure and tested 45°, 70° and non-chamfered joints, measuring heat by thermocouple and IR camera and hardness by micro-Vickers.',
-  i:'The chamfered joint ran cooler, with finer grain and 11% higher hardness.',
-  tools:['Micro-Vickers','ASTM E112','Thermocouple','IR camera','CNC machining']},
- {tag:'Manufacturing · Lab Otomasi Manufaktur',logo:'logo-ub.png',t:'CNC turning: from drawing to G-code',ins:'Separate rough from finish: a finishing offset keeps final dimensions independent of roughing accuracy.',img:'cnc-3.jpg',contain:true,cap:'Every roughing pass laid out before coding',
-  k:[['95','NC blocks'],['6 sheets','Drawing pack'],['G84 · G86','Turning and grooving cycles']],
-  p:'Turn a stepped shaft with radiused shoulders and a groove on a TU CNC-2A lathe from a hand-written program.',
-  a:'Drew the part, planned roughing passes, finishing offset and grooving, then wrote the program with G84 cycles, G02/G03 arcs, G86 grooving and a tool change.',
-  i:'Submitted the program and drawing pack for lab assessment, with a plain-language description beside every block.',
-  tools:[['NC','G-code'],'Turning cycles','Grooving','Technical drawing']},
- {tag:'Project · Universitas Brawijaya',logo:'logo-ub.png',t:'Universal joint yoke casting simulation',ins:'Simulate before you pour: predicted defects matched the real casting, so mould changes can be tested virtually first.',img:'cast-sim.jpg',contain:true,cap:'Predicted defect location, Altair Inspire Cast',
-  k:[['4','Defect types traced to cause'],['Jul–Nov 2023','Project period']],
-  p:'Sand-cast power-transmission yokes showed internal defects that weaken the part.',
-  a:'Simulated flow, thermal behaviour and solidification, then compared predicted defects with the actual casting.',
-  i:'Identified the cause of microporosity, shrinkage, gas entrainment and sand inclusion, and the parameter changes that reduce them.',
-  tools:[['AL','Altair Inspire Cast'],['SW','SolidWorks'],'Solidification']},
- {tag:'Project · Universitas Brawijaya',logo:'logo-ub.png',t:'IoT automatic rice grain dryer',ins:'Close the loop: a sensor, controller and heater loop replaces judging dryness by eye.',img:'dryer.jpg',pos:'center 40%',cap:'Team of 4 with the working prototype',
-  k:[['2nd Best Paper','Innovation, IYCEI 2023 (international)'],['Patent','Related IoT agrotech patent approved']],
-  p:'Manual sun-drying gives uneven moisture and lower grain quality.',
-  a:'Designed and tested a closed-loop thermal dryer in a team of four, applying heat-transfer and airflow principles.',
-  i:'Evaluated moisture reduction, heat-flow distribution and efficiency; the paper won an international innovation award.',
-  tools:['IoT control','Heat transfer','Airflow']}
-];
-const cad=[
- {t:'Portable Saw',tool:'IV',sw:'Autodesk Inventor',meta:'Engineering drawing · May 2022',d:'15-part assembly with exploded view, section A-A and a 5-sheet A3 drawing set.',img:'cad-saw-exploded.jpg',g:[['cad-saw-exploded.jpg','Exploded assembly with balloons and parts list'],['cad-saw-iso.jpg','Isometric views of the 3D model']]},
- {t:'Refrigerator Valve',tool:'SW',sw:'SolidWorks',meta:'SolidWorks Fundamental training · Nov 2024',d:'5-part brass and stainless valve: body, spindle, seat, gland nut and cap, with section C-C.',img:'cad-valve.jpg',g:[['cad-valve.jpg','Assembled valve, 3D model'],['cad-valve-bom.jpg','Exploded view and bill of materials']]},
- {t:'Pipe Vice',tool:'SW',sw:'SolidWorks',meta:'SolidWorks Fundamental training · Nov 2024',d:'12-item steel assembly with spindle screw, jaws and pins, plus an assembly animation.',img:'cad-vice.jpg',g:[['cad-vice.mp4','Assembly animation'],['cad-vice.jpg','Assembled pipe vice'],['cad-vice-bom.jpg','Exploded view and bill of materials']]},
- {t:'Propeller',tool:'IV',sw:'Autodesk Inventor',meta:'Inventor practice · Apr 2023',d:'Propeller part model with a 2D drawing and rendered views.',img:'cad-propeller.jpg',g:[['cad-propeller.jpg','Rendered propeller model']]},
- {t:'E-bike Triple Clamp',tool:'IV',sw:'Autodesk Inventor 2024',meta:'Nov 2024',d:'Steering triple clamp plate with lightening cut-outs, 200 × 97 × 15 mm, exported as STEP.',img:'cad-clamp.jpg',g:[['cad-clamp.jpg','Triple clamp plate, rendered from the STEP file']]},
- {t:'Fuel Tank Concept',tool:'IV',sw:'CAD model',meta:'Internship · 2024',d:'7-part Al 6061 tank, 600 mm long, welded shell with screw-jointed cap and service hatches.',img:'tank_assy.jpg',g:[['tank_assy.jpg','Assembly and parts list'],['tank_exploded.jpg','Exploded view with joining methods'],['tank_dims.jpg','Overall dimensions']]},
- {t:'CNC Turned Shaft',tool:'NC',sw:'TU CNC-2A',meta:'Lab Otomasi Manufaktur',d:'Stepped shaft with radiused shoulders and a groove, drawn at 2:1 and programmed in 95 NC blocks.',img:'cnc-1.jpg',g:[['cnc-1.jpg','3D view of the part'],['cnc-2.jpg','2D view with dimensions'],['cnc-3.jpg','Roughing passes laid out before coding']]},
- {t:'Yoke Sand Mould',tool:'SW',sw:'SolidWorks',meta:'Casting project · 2023',d:'Sand mould design for the universal joint yoke used in the casting simulation.',img:'cast-mold.jpg',g:[['cast-mold.jpg','Mould design'],['cast-sim.jpg','Simulation prediction'],['cast-defect.jpg','Actual defect matched']]}
-];
-const docs=[
- ['Certification','cert-bnsp.jpg','Ahli K3 Umum · BNSP · Feb 2026'],
- ['Certification','cert-exagama.jpg','Basic Safety training · Exagama Merapi Sertifikasi · Jan 2026'],
- ['Certification','cert-rcm.jpg','RCM Workshop participant · Jun 2024'],
- ['Certification','cert-rcm-syllabus.jpg','RCM Workshop syllabus · 30 h'],
- ['Certification','cert-mms.jpg','Maintenance Management System · Dec 2024'],
- ['Certification','cert-ppic.jpg','PPIC for Manufacturing · May 2026'],
- ['Certification','cert-scm.jpg','Supply Chain Management · Apr 2026'],
- ['Certification','cert-excel.jpg','Excel Bootcamp Intermediate · Jun 2026'],
- ['Certification','k3-investigation.jpg','K3 assessment · accident investigation report'],
- ['Certification','k3-permit.jpg','K3 assessment · permit-to-work form'],
- ['Certification','scm-racks.jpg','SCM casework · bins and racks for 300 parts'],
- ['Certification','ppic-rop.jpg','PPIC casework · days of cover and reorder point'],
- ['Experience','cockpit.jpg','Batam Aero Technic · on the flight deck'],
- ['Experience','plane.jpg','Batam Aero Technic · on the apron'],
- ['Experience','lion.jpg','Lion Group Management Trainee · 2026'],
- ['Experience','n219.jpg','PT Dirgantara Indonesia · N219 simulator'],
- ['Experience','ptdi-letter.jpg','PTDI internship completion letter'],
- ['Education','cnc-1.jpg','CNC turning · 3D view of the part'],
- ['Education','thesis-team.jpg','Comprehensive exam with research partners'],
- ['Education','thesis-vickers.jpg','Micro-Vickers hardness tester'],
- ['Education','thesis-macro.jpg','Macro sections of welded joints'],
- ['Education','cert-iycei.jpg','IYCEI 2023 · 2nd Best Paper of Innovation'],
- ['Organisation','cert-rcm-committee.jpg','RCM Workshop organizing committee'],
- ['Organisation','rcm-2.jpg','RCM Workshop 2024'],
- ['Organisation','mmd-group.jpg','MMD 1000 Desa 2023 · village team'],
- ['Organisation','mmd-speak.jpg','MMD 2023 · speaking at a village program session'],
- ['Organisation','sre.jpg','Society of Renewable Energy UB'],
- ['Organisation','moderator.jpg','Moderator · Kreativitas Mesin Brawijaya 2022–2023'],
- ['Organisation','rcm-1.jpg','RCM Workshop venue']
-];
-const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const chip=c=>Array.isArray(c)?`<span class="chip"><i>${icon(c[0])}</i>${esc(c[1])}</span>`:`<span class="chip">${esc(c)}</span>`;
-document.getElementById('prof').innerHTML=`<div class="prof-head"><h3>Software proficiency</h3><span>Self-rated, based on coursework, training and daily use</span></div><div class="bars">${prof.map(p=>`<div class="bar"><div class="ic">${icon(p[0])}</div><div class="bd"><div class="nm">${esc(p[1])}</div><div class="row"><div class="track" role="progressbar" aria-label="${esc(p[1])}" aria-valuenow="${p[2]}" aria-valuemin="0" aria-valuemax="100"><div class="fill" style="width:${p[2]}%"></div></div><b>${p[2]}%</b></div></div></div>`).join('')}</div><div class="langs"><p class="eyebrow">Languages</p><div><b>Indonesian</b> · Native</div><div><b>English</b> · Professional</div><div><b>Chinese</b> · Elementary</div></div>`;
-
-document.getElementById('skillGrid').innerHTML=skills.map(s=>`<article class="skill"><h3>${esc(s.t)}</h3><p>${esc(s.p)}</p><div class="chips">${s.c.map(chip).join('')}</div></article>`).join('');
-document.getElementById('journeyGrid').innerHTML=journey.map(j=>`<div class="track"><h3>${esc(j.h)}</h3><ol>${j.items.map(i=>`<li><span class="when">${esc(i[0])}</span><span class="what">${esc(i[1])}</span><span class="where">${esc(i[2])}</span>${i[3]?`<span class="note">${esc(i[3])}</span>`:''}</li>`).join('')}</ol></div>`).join('');
-document.getElementById('caseList').innerHTML=cases.map(c=>`<article class="case"><figure class="case-media" style="margin:0"><img src="${A+c.img}" alt="${esc(c.cap)}" class="${c.contain?'contain':''}" style="${c.pos?'object-position:'+c.pos:''}" loading="lazy"><figcaption>${esc(c.cap)}</figcaption></figure><div class="case-body"><div class="case-tag"><p class="eyebrow">${esc(c.tag)}</p>${c.logo?`<img src="${A+c.logo}" alt="">`:''}</div><h3>${esc(c.t)}</h3><div class="case-kpis">${c.k.map(k=>`<div><strong>${esc(k[0])}</strong><span>${esc(k[1])}</span></div>`).join('')}</div><ul class="pai"><li><b>PROBLEM</b>${esc(c.p)}</li><li><b>ACTION</b>${esc(c.a)}</li><li><b>IMPACT</b>${esc(c.i)}</li></ul>${c.ins?`<div class="insight"><b>Key insight · </b>${esc(c.ins)}</div>`:''}<div class="chips">${c.tools.map(chip).join('')}</div></div></article>`).join('');
-document.getElementById('cadGrid').innerHTML=cad.map((m,ix)=>`<button type="button" class="model" data-cad="${ix}"><div class="thumb"><span class="sw">${m.tool&&icon(m.tool)?`<i>${icon(m.tool)}</i>`:''}${esc(m.sw)}</span><img src="${A+m.img}" alt="${esc(m.t)} 3D model" loading="lazy"></div><div class="model-body"><span class="meta">${esc(m.meta)}</span><h4>${esc(m.t)}</h4><p>${esc(m.d)}</p></div></button>`).join('');
-
-const cats=['All','Certification','Experience','Education','Organisation'];
-let cur='All';
-function drawDocs(){
-  document.getElementById('docTabs').innerHTML=cats.map(c=>`<button type="button" class="tab" aria-pressed="${c===cur}" data-cat="${c}">${c}</button>`).join('');
-  const list=docs.filter(d=>cur==='All'||d[0]===cur);
-  document.getElementById('docGrid').innerHTML=list.map(d=>`<button type="button" class="doc" data-doc="${docs.indexOf(d)}"><img src="${A+d[1]}" alt="${esc(d[2])}" loading="lazy"><span>${esc(d[2])}</span></button>`).join('');
-}
-drawDocs();
-document.getElementById('docTabs').addEventListener('click',e=>{const b=e.target.closest('[data-cat]');if(!b)return;cur=b.dataset.cat;drawDocs();});
-
-const lb=document.getElementById('lb'),lbMedia=document.getElementById('lbMedia'),lbCap=document.getElementById('lbCap');
-let set=[],pos=0,lastFocus=null;
-function show(){const [src,cap]=set[pos];lbMedia.innerHTML=src.endsWith('.mp4')?`<video src="${A+src}" controls autoplay muted loop playsinline></video>`:`<img src="${A+src}" alt="${esc(cap)}">`;lbCap.textContent=cap+(set.length>1?`  (${pos+1}/${set.length})`:'');document.getElementById('lbPrev').hidden=document.getElementById('lbNext').hidden=set.length<2;}
-function open(s,p){set=s;pos=p;lastFocus=document.activeElement;lb.hidden=false;show();document.getElementById('lbClose').focus();}
-function close(){lb.hidden=true;lbMedia.innerHTML='';if(lastFocus)lastFocus.focus();}
-document.getElementById('cadGrid').addEventListener('click',e=>{const b=e.target.closest('[data-cad]');if(!b)return;open(cad[+b.dataset.cad].g,0);});
-document.getElementById('docGrid').addEventListener('click',e=>{const b=e.target.closest('[data-doc]');if(!b)return;const list=docs.filter(d=>cur==='All'||d[0]===cur).map(d=>[d[1],d[2]]);open(list,list.findIndex(x=>x[0]===docs[+b.dataset.doc][1]));});
-document.getElementById('lbClose').onclick=close;
-document.getElementById('lbPrev').onclick=()=>{pos=(pos-1+set.length)%set.length;show();};
-document.getElementById('lbNext').onclick=()=>{pos=(pos+1)%set.length;show();};
-lb.addEventListener('click',e=>{if(e.target===lb)close();});
-document.addEventListener('keydown',e=>{if(lb.hidden)return;if(e.key==='Escape')close();if(e.key==='ArrowRight')document.getElementById('lbNext').click();if(e.key==='ArrowLeft')document.getElementById('lbPrev').click();});
-
-document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{
-  const el=document.getElementById(b.dataset.copy),txt=el.textContent.trim(),orig=b.textContent;
-  const done=()=>{b.textContent='Copied';setTimeout(()=>b.textContent=orig,1500);};
-  const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected, press Ctrl+C';setTimeout(()=>b.textContent=orig,2000);};
-  try{navigator.clipboard.writeText(txt).then(done,sel);}catch(err){sel();}
-}));
-
-const mb=document.getElementById('menuBtn'),nl=document.getElementById('navList');
-mb.addEventListener('click',()=>{const o=nl.classList.toggle('open');mb.setAttribute('aria-expanded',o);});
-nl.addEventListener('click',e=>{if(e.target.closest('a')){nl.classList.remove('open');mb.setAttribute('aria-expanded','false');}});
-</script>
 </body>
 </html>
