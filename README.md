@@ -26,3 +26,4 @@ Upload a new PDF with exactly the same name, `cv/I_Gede_Putu_Wiweka_Legawa_CV.pd
 
 ## Edit content
 Text in sections: `index.html`. Skills, % bars, projects, CAD and documentation lists: `js/data.js`. Colours and layout: `css/style.css`.
+
