@@ -1,155 +1,344 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Gede Wiweka Portfolio</title>
-<meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Engineering portfolio of I Gede Putu Wiweka Legawa, Mechanical Engineer: maintenance planning, reliability and CMMS data governance.">
+<title>Gede Wiweka · Mechanical Engineer Portfolio</title>
+<meta name="description" content="Engineering portfolio of I Gede Putu Wiweka Legawa, Mechanical Engineer: maintenance planning, CMMS governance and remote technical support for rotating, fluid and electro-mechanical breakdown recovery.">
+<meta name="author" content="I Gede Putu Wiweka Legawa">
+<meta name="theme-color" content="#4A3B33">
+<meta property="og:type" content="website">
+<meta property="og:title" content="I Gede Putu Wiweka Legawa · Mechanical Engineer">
+<meta property="og:description" content="Maintenance planning, CMMS governance and remote technical support, backed by real results and engineering insight.">
+<meta property="og:image" content="assets/portrait-brawijaya.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%238B2E2E'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' fill='%23F2A900' text-anchor='middle'%3EGW%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,600&display=swap">
-<link rel="stylesheet" href="css/style.css">
-<script src="js/data.js" defer></script>
-<script src="js/main.js" defer></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap">
+<script>
+  /* Apply the saved or system theme before first paint (avoids a flash). */
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem('gw-theme'); } catch (e) {}
+    if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+    document.documentElement.classList.remove('no-js');
+  })();
+</script>
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header class="nav">
+<!-- ================= NAVIGATION ================= -->
+<header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#home">GEDE WIWEKA<span>.</span></a>
-    <div class="nav-right"><a class="nav-cv" href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg><span>CV</span></a><button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navList">Menu</button></div>
-    <ul id="navList">
+    <a class="brand" href="#home" aria-label="Gede Wiweka, back to top">GEDE WIWEKA<b>.</b><small>Mechanical Engineer</small></a>
+    <ul class="nav-links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#approach">Approach</a></li>
+      <li><a href="#workflow">Workflow</a></li>
+      <li><a href="#work">Work</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#journey">Journey</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#documentation">Documentation</a></li>
+      <li><a href="#docs">Documentation</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="nav-tools">
+      <button type="button" class="icon-btn theme-toggle" id="themeToggle" aria-label="Switch to dark mode">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.2M12 19.8V22M4.2 4.2l1.6 1.6M18.2 18.2l1.6 1.6M2 12h2.2M19.8 12H22M4.2 19.8l1.6-1.6M18.2 5.8l1.6-1.6"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.6 6.6 0 0 0 10.7 10.7z"/></svg>
+      </button>
+      <a class="btn btn-solid nav-cv" href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv aria-label="Download CV (PDF)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg><span>CV</span>
+      </a>
+      <button type="button" class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
   </div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
 </header>
 
-<main id="home">
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-copy">
-        <p class="hi">Hi, I'm</p>
-        <h1 class="name">I Gede Putu<br>Wiweka Legawa</h1>
-        <div class="role"><b>Mechanical Engineer</b><span>Maintenance Planning · Reliability · CMMS Data Governance</span></div>
-        <div class="motto"><p>“Keep it safe. Keep it running. Keep improving.”</p></div>
-        <div class="cta"><a class="btn solid" href="#work">See my work</a><a class="btn ghost" href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download CV</a><a class="btn link" href="#contact">Contact me</a></div>
-      </div>
-      <div class="portrait" aria-hidden="false">
-        <div class="disc"></div><div class="ring"></div>
-        <img src="assets/hero.png" alt="I Gede Putu Wiweka Legawa in graduation gown holding his Universitas Brawijaya diploma folder">
+<main id="main">
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-copy reveal">
+      <p class="status"><span class="dot" aria-hidden="true"></span>Management Trainee – Operations Engineer · since Mar 2026</p>
+      <h1>I Gede Putu <span>Wiweka Legawa</span></h1>
+      <p class="role"><b>Mechanical Engineer</b> · Maintenance Planning · Reliability · CMMS Governance</p>
+      <p class="lead">I run <strong>fleet-wide maintenance planning and CMMS governance</strong> for a 400+ aircraft fleet across 64 stations, and give <strong>remote technical support for breakdown recovery</strong> across rotating machinery, pressurized hydraulic and fluid systems, electro-mechanical instrumentation and corrosion-preventive preservation.</p>
+      <p class="motto">“Keep it safe. Keep it running. Keep improving.”</p>
+      <div class="cta">
+        <a class="btn btn-solid" href="#work">See engineering work
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download CV</a>
+        <a class="btn btn-link" href="#contact">Contact me</a>
       </div>
     </div>
-  </section>
-
-  <div class="band">
-    <div class="wrap">
-      <div class="kpis">
-        <div class="kpi"><strong>108.0%</strong><span>Backlog-closure achievement, up from 92.1%</span></div>
-        <div class="kpi"><strong>78.13%</strong><span>Critical downtime recovered in-house within 24 h (target 75%)</span></div>
-        <div class="kpi"><strong>30,456</strong><span>CMMS records checked in one month</span></div>
-        <div class="kpi"><strong>&lt;30 min</strong><span>Daily data reconciliation, down from 2.5 h</span></div>
+    <div class="portrait reveal">
+      <div class="frame">
+        <img src="assets/portrait-brawijaya.jpg" alt="I Gede Putu Wiweka Legawa in graduation gown and cap at Universitas Brawijaya" width="880" height="1000" fetchpriority="high">
       </div>
-      <small>Reported results, PT Batam Aero Technic, Sep–Oct 2026.</small>
+      <div class="badge b1"><img src="assets/logo-ub.png" alt=""><span><b>B.Eng.</b>Mechanical Eng., Brawijaya</span></div>
+      <div class="badge b2"><img src="assets/logo-bnsp.png" alt=""><span><b>Ahli K3 Umum</b>BNSP certified</span></div>
     </div>
   </div>
+</section>
 
-  <section id="about">
-    <div class="wrap about">
-      <div class="about-photo"><img src="assets/about.jpg" alt="Gede in a navy blazer and graduation sash in front of the Teknik Mesin building, Universitas Brawijaya"></div>
-      <div class="about-text">
-        <div class="sec-head"><p class="eyebrow">About me</p><h2 class="h2">I turn maintenance data into decisions</h2></div>
-        <p>I'm a Mechanical Engineer from Universitas Brawijaya and a certified General Occupational Safety &amp; Health Expert (Ahli K3 Umum, BNSP).</p>
-        <p>Since March 2026 I've worked as a Management Trainee – Operations Engineer at PT Batam Aero Technic (Lion Air Group). I plan maintenance performance for a 400+ aircraft fleet across 64 maintenance stations in Indonesia, Malaysia and Thailand. My work turns work-order, defect and downtime records into backlog, man-hour and availability decisions, and I build the monthly production KPI report for the group Board of Directors.</p>
-        <p>Alongside the job I've trained in reliability (RCM), workplace safety (Ahli K3 Umum) and planning and inventory control, and before it I built my engineering base in CAD, CNC programming, materials testing and a fuel-system internship. The same question runs through all of it: what does the data say we should do next?</p>
-        <ul class="facts">
-          <li><b>Based in</b>Tangerang, Banten</li>
-          <li><b>Focus</b>Maintenance planning, reliability, CMMS data</li>
-          <li><b>Languages</b>Indonesian (native), English (professional), Chinese (elementary)</li>
-          <li><b>Trained in</b>RCM (Pertamina Hulu Energi), PPIC, SCM</li>
-        </ul>
-        <div class="logos" aria-label="Organisations">
-          <div><img src="assets/logo-ub.png" alt="Universitas Brawijaya"></div>
-          <div><img src="assets/logo-mesin.png" alt="Departemen Teknik Mesin Universitas Brawijaya"></div>
-          <div><img src="assets/logo-bat.png" alt="Batam Aero Technic"></div>
-          <div><img src="assets/logo-ptdi.png" alt="PT Dirgantara Indonesia"></div>
-          <div><img src="assets/logo-bnsp.png" alt="BNSP"></div>
-          <div><img src="assets/logo-phe.png" alt="Pertamina Hulu Energi"></div>
+<!-- ================= KPI BENTO ================= -->
+<section class="kpi-sec" aria-labelledby="kpiTitle">
+  <div class="wrap">
+    <h2 class="sr-only" id="kpiTitle">Key results</h2>
+    <div class="bento">
+      <article class="tile hero-tile reveal">
+        <span class="ktag">Backlog closure</span>
+        <div>
+          <div class="kv"><span data-count="108.0" data-dec="1">108.0</span><small>%</small></div>
+          <p class="kl">Backlog-closure achievement after a station-wide campaign</p>
+          <p class="kc">Up from 92.1% · 495 defects Pareto-ranked · 4 fleet types</p>
         </div>
+        <div class="spark" aria-hidden="true">
+          <div class="bar" data-h="92.1"><i></i><span>Before · 92.1%</span></div>
+          <div class="bar on" data-h="108.0"><i></i><span>After · 108.0%</span></div>
+        </div>
+      </article>
+      <article class="tile reveal">
+        <span class="ktag">Breakdown recovery</span>
+        <div>
+          <div class="kv"><span data-count="78.13" data-dec="2">78.13</span><small>%</small></div>
+          <p class="kl">Critical downtime recovered in-house within 24 h</p>
+          <p class="kc">96 events · target 75%</p>
+        </div>
+        <div class="meter" role="img" aria-label="78.13% against a 75% target"><i data-w="78.13"></i><span class="tgt" style="left:75%"></span></div>
+      </article>
+      <article class="tile reveal">
+        <span class="ktag">Dispatch reliability</span>
+        <div>
+          <div class="kv"><span data-count="99.79" data-dec="2">99.79</span><small>%</small></div>
+          <p class="kl">Delay-free first departures</p>
+          <p class="kc">4,732 departures · Sep 2026</p>
+        </div>
+      </article>
+      <article class="tile reveal">
+        <span class="ktag">CMMS governance</span>
+        <div>
+          <div class="kv"><span data-count="30456" data-dec="0">30,456</span></div>
+          <p class="kl">CMMS records cross-checked in one month</p>
+          <p class="kc">77 missing logs · 591 pending WOs flagged</p>
+        </div>
+      </article>
+      <article class="tile accent reveal">
+        <span class="ktag">Reconciliation</span>
+        <div>
+          <div class="kv">&lt;<span data-count="30" data-from="150" data-dec="0">30</span><small>min</small></div>
+          <p class="kl">Daily data reconciliation</p>
+          <p class="kc">Down from 2.5 h (~80% faster)</p>
+        </div>
+      </article>
+      <article class="tile wide reveal">
+        <span class="ktag">Downtime constraints</span>
+        <div>
+          <div class="kv"><span data-count="245" data-dec="0">245</span><small>/ 307</small></div>
+          <p class="kl">Breakdowns over 24 h that waited on spares or tools (~80%)</p>
+          <p class="kc">Coded events · Mar–Nov 2026</p>
+        </div>
+        <div class="meter" role="img" aria-label="245 of 307 events, about 80%"><i data-w="79.8"></i></div>
+      </article>
+      <article class="tile wide reveal">
+        <span class="ktag">Workforce planning</span>
+        <div>
+          <div class="kv"><span data-count="17" data-dec="0">17</span><small>stations</small></div>
+          <p class="kl">Hidden shortages exposed by an 18% workforce buffer</p>
+          <p class="kc">1,171 personnel · 104 stations · shortages 9 → 26</p>
+        </div>
+      </article>
+    </div>
+    <p class="kpi-note">Reported results at PT Batam Aero Technic (Lion Air Group), Mar–Nov 2026. No aircraft registrations, work-order numbers or manual references are shown.</p>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" class="alt">
+  <div class="wrap about">
+    <figure class="about-photo reveal" style="margin:0">
+      <img src="assets/about.jpg" alt="Gede in a navy blazer and graduation sash in front of the Mechanical Engineering building, Universitas Brawijaya" loading="lazy">
+      <figcaption>Departemen Teknik Mesin, Universitas Brawijaya</figcaption>
+    </figure>
+    <div class="about-text reveal">
+      <div class="sec-head"><p class="eyebrow">About me</p><h2 class="h2">I turn maintenance data into decisions that keep equipment running</h2></div>
+      <p>I'm a Mechanical Engineer (B.Eng., Universitas Brawijaya) and a certified General Occupational Safety &amp; Health Expert (<strong>Ahli K3 Umum, BNSP</strong>).</p>
+      <p>Since March 2026 I've worked as a Management Trainee – Operations Engineer at <strong>PT Batam Aero Technic (Lion Air Group)</strong>. I own maintenance performance planning for a 400+ aircraft, 6-operator fleet across 64 stations in Indonesia, Malaysia and Thailand, and turn CMMS work-order, deferred-defect and downtime data into availability, backlog and man-hour decisions. I build the monthly production KPI report for the Lion Group Board of Directors.</p>
+      <p>When equipment breaks down at a remote station, I provide <strong>remote technical support</strong>: lining up the troubleshooting sequence with the licensed field team, getting the right test equipment and spares to site, and following the fault until a test proves the repair. That covers rotating machinery (vibration and balancing), pressurized hydraulic and fluid systems, electro-mechanical sensors and wiring, and corrosion-preventive preservation.</p>
+      <p>Before that, I built my engineering base in CAD, CNC programming, materials testing and a fuel-system internship at PT Dirgantara Indonesia. The question behind all of it stays the same: what does the data say we should do next?</p>
+      <ul class="facts">
+        <li><b>Based in</b>Tangerang, Banten, Indonesia</li>
+        <li><b>Focus</b>Maintenance planning, reliability, CMMS governance</li>
+        <li><b>Languages</b>Indonesian (native), English (professional working)</li>
+        <li><b>Trained in</b>RCM (30 h), PPIC, Supply Chain, Maintenance Management</li>
+      </ul>
+      <div class="logos" aria-label="Organisations">
+        <div><img src="assets/logo-ub.png" alt="Universitas Brawijaya" loading="lazy"></div>
+        <div><img src="assets/logo-mesin.png" alt="Departemen Teknik Mesin Universitas Brawijaya" loading="lazy"></div>
+        <div><img src="assets/logo-bat.png" alt="Batam Aero Technic" loading="lazy"></div>
+        <div><img src="assets/logo-ptdi.png" alt="PT Dirgantara Indonesia" loading="lazy"></div>
+        <div><img src="assets/logo-bnsp.png" alt="BNSP" loading="lazy"></div>
+        <div><img src="assets/logo-phe.png" alt="Pertamina Hulu Energi (RCM workshop)" loading="lazy"></div>
+      </div>
+      <p class="role-note"><b>About my role:</b> repairs are carried out by licensed field technicians. My part is planning, remote technical support and data control, from the first fault report to the test that releases the equipment.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORKFLOW ================= -->
+<section id="workflow">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">How I work</p><h2 class="h2">One closed loop from field data to availability</h2><p class="lede">Every breakdown and every record goes through the same six steps, held in place by a fixed review rhythm.</p></div>
+    <div class="flow-grid">
+      <div class="loop reveal">
+        <ol id="loopList">
+          <li><span class="n">1</span><h3>Daily operating logs</h3><p>Flight logs, job reports and work orders from 64 stations.</p></li>
+          <li><span class="n">2</span><h3>Backlog tracking</h3><p>Deferred defects Pareto-ranked by system; items open over 3 days escalated.</p></li>
+          <li><span class="n">3</span><h3>Remote support</h3><p>Troubleshooting and fault-isolation steps agreed with the licensed field team.</p></li>
+          <li><span class="n">4</span><h3>Tools &amp; spares</h3><p>Test equipment and parts moved to site; delay causes coded.</p></li>
+          <li><span class="n">5</span><h3>Repair &amp; test</h3><p>Operational, pressure or leak test before release to service.</p></li>
+          <li><span class="n">6</span><h3>3-way CMMS check</h3><p>Logs, job reports and work orders reconciled within 24 h.</p></li>
+        </ol>
+        <div class="loop-hub"><b>Equipment availability</b><span><em>108.0%</em> backlog closure</span><span><em>78.13%</em> recovered &lt;24 h</span><span><em>99.79%</em> delay-free departures</span></div>
+      </div>
+      <aside class="cadence reveal" aria-label="Control cadence">
+        <h3>The control cadence</h3>
+        <dl>
+          <div><dt><span>Daily</span>Morning performance review</dt><dd>Open backlog, active breakdowns and tool or spares constraints; planned versus actual jobs per station.</dd></div>
+          <div><dt><span>Within 24 h</span>Escalation &amp; data discipline</dt><dd>Breakdowns not recovered in 24 h escalated with cause codes; logs and work orders in the CMMS within 24 h.</dd></div>
+          <div><dt><span>Bi-weekly</span>Station performance review</dt><dd>Man-hours delivered against capacity, backlog closure and recovery time for station leads.</dd></div>
+          <div><dt><span>Monthly</span>Board KPI report</dt><dd>Production KPIs for the Lion Group Board; the backlog Pareto sets the root-cause priority list.</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section id="work" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">Selected work</p><h2 class="h2">Engineering case studies</h2><p class="lede">Filter by discipline, then open a case for the full story: problem, action and impact, the key engineering insight, the parts, tools and standards involved, and the data behind it.</p></div>
+    <div class="filters" id="caseFilters" role="group" aria-label="Filter case studies"></div>
+    <div class="case-grid" id="caseGrid" aria-live="polite"></div>
+    <noscript><p class="empty">Case studies need JavaScript to display. You can still download the CV above.</p></noscript>
+
+    <details class="glossary reveal">
+      <summary>Plain-language glossary <span>EVMU, N1, EDP/EMDP, DMI, AFML and more</span></summary>
+      <dl class="gloss-grid" id="glossGrid"></dl>
+    </details>
+
+    <div class="sec-head sub-head reveal"><p class="eyebrow">Mechanical design</p><h2 class="h2">CAD models &amp; drawing sets</h2><p class="lede">3D models and drawings from coursework, software training and the internship. Open any model to zoom into its drawings.</p></div>
+    <div class="filters" id="cadFilters" role="group" aria-label="Filter CAD models"></div>
+    <div class="gal-grid" id="cadGrid"></div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">What I work with</p><h2 class="h2">Skills, grouped by where I use them</h2></div>
+    <div class="skills-wrap">
+      <div class="prof reveal">
+        <h3>Software proficiency</h3>
+        <div id="profList"></div>
+        <p class="legend-note">Self-assessed against daily use at work, in training and in the lab.</p>
+      </div>
+      <div class="sk-grid" id="skillGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOURNEY ================= -->
+<section id="journey" class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">Experience, education &amp; credentials</p><h2 class="h2">Journey</h2></div>
+    <div class="journey" id="journeyGrid"></div>
+  </div>
+</section>
+
+<!-- ================= DOCUMENTATION ================= -->
+<section id="docs">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">Proof</p><h2 class="h2">Documentation</h2><p class="lede">Certificates and photos behind the work above. Personal ID numbers on certificates are blurred.</p></div>
+    <div class="filters" id="docFilters" role="group" aria-label="Filter documentation"></div>
+    <div class="gal-grid" id="docGrid"></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head reveal"><p class="eyebrow">Let's connect</p><h2 class="h2">Let's talk maintenance, reliability and engineering data</h2><p class="lede">The quickest way to reach me is WhatsApp or email.</p></div>
+    <div class="ways">
+      <div class="way reveal"><b>Phone / WhatsApp</b><span class="val" id="vPhone">+62 812-3867-6427</span>
+        <div class="act"><button type="button" data-copy="vPhone">Copy number</button><a href="https://wa.me/6281238676427" target="_blank" rel="noopener">WhatsApp</a></div></div>
+      <div class="way reveal"><b>Email</b><span class="val" id="vMail">gedeputu242003@gmail.com</span>
+        <div class="act"><button type="button" data-copy="vMail">Copy email</button><a href="mailto:gedeputu242003@gmail.com">Send email</a></div></div>
+      <div class="way reveal"><b>LinkedIn</b><span class="val">linkedin.com/in/gedewiweka</span>
+        <div class="act"><a href="https://www.linkedin.com/in/gedewiweka" target="_blank" rel="noopener">Open profile</a></div></div>
+      <div class="way way-cv reveal">
+        <div class="grow"><b>Curriculum vitae</b><span class="val">Full CV: experience, projects, certifications and skills</span><span class="meta mono">PDF · 4 pages · updated Nov 2026</span></div>
+        <a class="btn" href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download CV</a>
       </div>
     </div>
-  </section>
-
-  <section id="approach">
-    <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">How I work</p><h2 class="h2">Four habits behind the results</h2><p class="lede">They show up the same way at work, in training casework and in the lab.</p></div>
-      <div class="habits">
-        <article class="habit"><h3>Measure before deciding</h3><p>Rank the problem before fixing it.</p><ul><li>495 defects Pareto-ranked by system</li><li>18% buffer model across 104 stations</li><li>ABC/FSN segmentation of 300 spare parts</li></ul></article>
-        <article class="habit"><h3>Trust the record last</h3><p>A KPI is only as good as its source.</p><ul><li>3-way check of logs, job reports and work orders</li><li>77 missing logs and 591 pending work orders caught</li><li>Weld heat measured by thermocouple and IR camera</li></ul></article>
-        <article class="habit"><h3>Plan for the constraint</h3><p>Know what the work is waiting for.</p><ul><li>Downtime coded by spares, tools or troubleshooting</li><li>Capacity checks (RCCP) before a schedule is released</li><li>Reorder points that move with demand</li></ul></article>
-        <article class="habit"><h3>Design safety and access in</h3><p>Make the safe way the easy way.</p><ul><li>HIRADC with LOTO and machine guarding</li><li>7-step permit-to-work procedure</li><li>Serviceable hatches on a welded tank concept</li></ul></article>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" style="background:var(--paper-2)">
-    <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">What I work with</p><h2 class="h2">Skills, grouped by where I used them</h2></div>
-      <div class="prof" id="prof"></div>
-      <div class="skills" id="skillGrid"></div>
-    </div>
-  </section>
-
-  <section id="journey">
-    <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Experience, education &amp; credentials</p><h2 class="h2">Journey</h2></div>
-      <div class="journey" id="journeyGrid"></div>
-    </div>
-  </section>
-
-  <section id="work" style="background:var(--paper-2)">
-    <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Selected work</p><h2 class="h2">Case studies</h2><p class="lede">Each one shows the problem, what I did and what changed. Company figures are my reported results; dashboard text that names stations is blurred.</p></div>
-      <div class="cases" id="caseList"></div>
-      <div class="sec-head cad-head"><p class="eyebrow">Mechanical design</p><h2 class="h2">CAD models</h2><p class="lede">3D models and drawing sets from coursework and software training. Select a model to see its drawings.</p></div>
-      <div class="cad" id="cadGrid"></div>
-    </div>
-  </section>
-
-  <section id="documentation">
-    <div class="wrap">
-      <div class="sec-head"><p class="eyebrow">Proof</p><h2 class="h2">Documentation</h2><p class="lede">Certificates and photos behind the work above. Personal ID numbers on certificates are blurred.</p></div>
-      <div class="tabs" role="group" aria-label="Filter documentation" id="docTabs"></div>
-      <div class="docs" id="docGrid"></div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="wrap">
-      <div class="sec-head"><p class="eyebrow" style="color:var(--amber)">Let's connect</p><h2 class="h2">Let's work together</h2><p class="lede">Happy to talk maintenance planning, reliability and engineering data.</p></div>
-      <div class="ways">
-        <div class="way"><b>Phone / WhatsApp</b><span class="val" id="vPhone">+62 812-3867-6427</span><button type="button" data-copy="vPhone">Copy number</button></div>
-        <div class="way"><b>Email</b><span class="val" id="vMail">gedeputu242003@gmail.com</span><button type="button" data-copy="vMail">Copy email</button></div>
-        <div class="way"><b>LinkedIn</b><span class="val">linkedin.com/in/gedewiweka</span><a class="go" href="https://www.linkedin.com/in/gedewiweka" target="_blank" rel="noopener">Open profile</a></div>
-        <div class="way way-cv"><b>Curriculum vitae</b><span class="val">Full CV with experience, projects and certifications · PDF, 4 pages</span><a class="go solid" href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>Download CV</a></div>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 </main>
-<footer><div class="wrap"><span>© 2026 I Gede Putu Wiweka Legawa · Mechanical Engineer</span><a href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv>Download CV (PDF)</a></div></footer>
-<button type="button" class="to-top" id="toTop" aria-label="Back to top" hidden><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></button>
 
-<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
-  <div id="lbMedia"></div>
-  <p id="lbCap"></p>
-  <div class="ctl"><button type="button" id="lbPrev">Previous</button><button type="button" id="lbClose">Close</button><button type="button" id="lbNext">Next</button></div>
+<footer>
+  <div class="wrap">
+    <span>© 2026 I Gede Putu Wiweka Legawa · Mechanical Engineer</span>
+    <a href="cv/I_Gede_Putu_Wiweka_Legawa_CV.pdf" download data-cv>Download CV (PDF)</a>
+  </div>
+</footer>
+
+<button type="button" class="to-top" id="toTop" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+</button>
+
+<!-- ================= INSIGHT DRAWER ================= -->
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-scrim" data-close></div>
+  <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="dTitle" tabindex="-1">
+    <div class="drawer-top">
+      <span class="crumb" id="dCrumb">Engineering insight &amp; data</span>
+      <div class="nav-pair">
+        <button type="button" class="icon-btn" id="dPrev" aria-label="Previous case"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" class="icon-btn" id="dNext" aria-label="Next case"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+        <button type="button" class="icon-btn" data-close aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      </div>
+    </div>
+    <div class="drawer-body" id="dBody"></div>
+  </div>
 </div>
 
+<!-- ================= LIGHTBOX ================= -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+  <div class="lb-bar">
+    <span class="count mono" id="lbCount">1 / 1</span>
+    <span class="sp"></span>
+    <button type="button" class="lb-btn" id="lbOut" aria-label="Zoom out">−</button>
+    <button type="button" class="lb-btn" id="lbReset" aria-label="Reset zoom"><span class="mono" id="lbZoom">100%</span></button>
+    <button type="button" class="lb-btn" id="lbIn" aria-label="Zoom in">+</button>
+    <button type="button" class="lb-btn" id="lbClose" aria-label="Close viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="lb-stage" id="lbStage">
+    <button type="button" class="lb-btn lb-side lb-prev" id="lbPrev" aria-label="Previous image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+    <div id="lbMedia"></div>
+    <button type="button" class="lb-btn lb-side lb-next" id="lbNext" aria-label="Next image"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+  </div>
+  <p class="lb-cap" id="lbCap"></p>
+</div>
+
+<div class="tip" id="tip" role="status" aria-live="polite"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
